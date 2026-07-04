@@ -1,0 +1,366 @@
+{
+  "users": [
+    {
+      "username": "swaraj cn",
+      "email": "swarajcn774@gmail.com",
+      "password": "$2b$10$qAXoZA0X8WsLUKvx53I8qOHdw1tDZqWmMMkdNI2ibGdQ6bSBtBCn.",
+      "id": 1,
+      "cover_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782798050/obh6f0k97jxcnwn8rl6z.jpg",
+      "profile_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782798082/qgffsa93kxigjaufmi3g.jpg",
+      "status": "Iam using connect",
+      "short_bio": "Software developer",
+      "followers": [
+        8
+      ],
+      "following": [
+        5,
+        7,
+        8,
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "username": "Devid",
+      "email": "devid@gmail.com",
+      "password": "$2b$10$Ah4DslznAoz9BRQIJFtTNOAOaK6wMEIe84XTjVT2m0rBGG3Xjrmoa",
+      "created_at": "6/18/2026",
+      "id": 2,
+      "profile_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1781746826/xflrwjwoaz5egobwt4wc.png",
+      "followers": [
+        1
+      ],
+      "following": []
+    },
+    {
+      "username": "saclop1217",
+      "email": "kumarnayaksachin915@gmail.com",
+      "password": "$2b$10$/i8igiSWM902xcdaV766/ekZtJyieyNwF/gRMwXeKecB4NV.cQ6Fy",
+      "created_at": "6/21/2026",
+      "id": 3,
+      "profile_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782012938/hcwtmk4mo9cklm0eqkyr.jpg",
+      "followers": [
+        1
+      ],
+      "following": []
+    },
+    {
+      "username": "Ami",
+      "email": "swarajcn778@gmail.com",
+      "password": "$2b$10$lfwSdoBPjphBF34sLnJNVuXDQ4eKadgM1IBM2vCo3CECV5s17ShGO",
+      "created_at": "21/06/2026",
+      "id": 4,
+      "status": "Medico",
+      "short_bio": "#Sullia",
+      "profile_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782014095/vowtjccjhvyahvdqffaa.jpg",
+      "cover_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782014129/lrntsho4zjcbr0aygjka.jpg",
+      "followers": [
+        1
+      ],
+      "following": []
+    },
+    {
+      "username": "test@gmail.com",
+      "email": "test@gmail.com",
+      "password": "$2b$10$x6MLufmHxQnLbcS23coHQeYuYH.8J9xPKA42axLMTeFhAnVMesfEq",
+      "created_at": "21/06/2026",
+      "id": 5,
+      "status": "hhh",
+      "short_bio": "gvvg",
+      "cover_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782038525/xaq2fdqmoahmsknusw4v.png",
+      "profile_pic": "https://res.cloudinary.com/diclwczg0/image/upload/v1782038761/oqpbhkc1qflup6usgtig.jpg",
+      "followers": [
+        1
+      ],
+      "following": []
+    },
+    {
+      "username": "saclop1212",
+      "email": "kumarnayaksachin915@gmail.com",
+      "password": "$2b$10$XPs56tuMZuGodfthQU.0EurqJpDnxzokZ2skkJqcPEs26A4x7/hey",
+      "created_at": "6/21/2026",
+      "id": 6,
+      "followers": [],
+      "following": []
+    },
+    {
+      "username": "navin",
+      "email": "navin",
+      "password": "$2b$10$8FMMP9OgwIAkQ.jkgRfcyOtBXVQMSQ0D/pITaNGBSUts1alqPC6ue",
+      "created_at": "6/21/2026",
+      "id": 7,
+      "followers": [
+        1
+      ],
+      "following": []
+    },
+    {
+      "username": "Dev",
+      "email": "dev@gmail.com",
+      "password": "$2b$10$9/I5tTt4pQTudnQmBrpTN.b5ILqseZQTyQ4VSOlhlC/rJRAsM9hUC",
+      "created_at": "6/27/2026",
+      "id": 8,
+      "following": [
+        1
+      ],
+      "followers": [
+        1
+      ]
+    }
+  ],
+  "admin":{
+      "password": "admin@123",
+      "username": "admin"
+    },
+  "posts": [
+    {
+      "userId": 1,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1781434930/mtelmbbvpvgu7cqmlubk.png",
+      "post_caption": "connect-logo",
+      "postLocation": "kakkanad",
+      "video_address": "",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1781434963/kld8sna6jjh5apydyuqb.jpg",
+      "post_caption": "interestingconding",
+      "postLocation": "kakkanad",
+      "video_address": "",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "image_address": "",
+      "video_address": "https://res.cloudinary.com/diclwczg0/video/upload/v1781449581/fo2xnkss7ycr9nbjvv2b.mp4",
+      "post_caption": "",
+      "postLocation": "",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "image_address": "",
+      "video_address": "https://res.cloudinary.com/diclwczg0/video/upload/v1781450333/pf50af6ycrqpqqzvniia.mp4",
+      "post_caption": "",
+      "postLocation": "",
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1781746897/n6whd39wqqsa1p6oes2s.png",
+      "video_address": "",
+      "post_caption": "Monkey Not FOund",
+      "postLocation": "Edukki",
+      "created_at": "6/18/2026",
+      "id": 7
+    },
+    {
+      "userId": 3,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1782013016/t1majb8vvjq589mlsnds.jpg",
+      "video_address": "",
+      "post_caption": "",
+      "postLocation": "",
+      "created_at": "6/21/2026",
+      "id": 8
+    },
+    {
+      "userId": 5,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1782038328/wztbaxewcrrixlwoerwv.png",
+      "video_address": "",
+      "post_caption": "dhd",
+      "postLocation": "thtrh",
+      "created_at": "21/06/2026",
+      "id": 9
+    },
+    {
+      "userId": 5,
+      "image_address": "",
+      "video_address": "https://res.cloudinary.com/diclwczg0/video/upload/v1782038671/ohor6u79hisojimzet1d.mp4",
+      "post_caption": "",
+      "postLocation": "",
+      "created_at": "21/06/2026",
+      "id": 10
+    },
+    {
+      "userId": 5,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1782038954/seaxavn7hfykantwhz6w.png",
+      "video_address": "",
+      "post_caption": "",
+      "postLocation": "",
+      "created_at": "21/06/2026",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "image_address": "https://res.cloudinary.com/diclwczg0/image/upload/v1782798128/fglpywker7lnb4lprsc3.jpg",
+      "video_address": "",
+      "post_caption": "Hehehe",
+      "postLocation": "Kakkanad",
+      "created_at": "6/30/2026",
+      "id": 12
+    }
+  ],
+  "likes": [
+    {
+      "postId": 1,
+      "postUserId": 1,
+      "likedUser": 1,
+      "id": 3
+    },
+    {
+      "postId": 2,
+      "postUserId": 1,
+      "likedUser": 1,
+      "id": 4
+    },
+    {
+      "postId": 4,
+      "postUserId": 1,
+      "likedUser": 1,
+      "id": 5
+    },
+    {
+      "postId": 5,
+      "postUserId": 1,
+      "likedUser": 1,
+      "id": 6
+    },
+    {
+      "postId": 7,
+      "postUserId": 2,
+      "likedUser": 1,
+      "id": 7
+    },
+    {
+      "postId": 2,
+      "postUserId": 1,
+      "likedUser": 4,
+      "id": 8
+    },
+    {
+      "postId": 4,
+      "postUserId": 1,
+      "likedUser": 4,
+      "id": 10
+    },
+    {
+      "postId": 5,
+      "postUserId": 1,
+      "likedUser": 4,
+      "id": 11
+    },
+    {
+      "postId": 7,
+      "postUserId": 2,
+      "likedUser": 4,
+      "id": 12
+    },
+    {
+      "postId": 8,
+      "postUserId": 3,
+      "likedUser": 4,
+      "id": 13
+    },
+    {
+      "postId": 1,
+      "postUserId": 1,
+      "likedUser": 4,
+      "id": 14
+    },
+    {
+      "postId": 8,
+      "postUserId": 3,
+      "likedUser": 1,
+      "id": 15
+    },
+    {
+      "postId": 9,
+      "postUserId": 5,
+      "likedUser": 5,
+      "id": 16
+    },
+    {
+      "postId": 9,
+      "postUserId": 5,
+      "likedUser": 1,
+      "id": 17
+    },
+    {
+      "postId": 10,
+      "postUserId": 5,
+      "likedUser": 1,
+      "id": 18
+    },
+    {
+      "postId": 1,
+      "postUserId": 1,
+      "likedUser": 5,
+      "id": 19
+    },
+    {
+      "postId": 2,
+      "postUserId": 1,
+      "likedUser": 5,
+      "id": 20
+    },
+    {
+      "postId": 12,
+      "postUserId": 1,
+      "likedUser": 1,
+      "id": 21
+    },
+    {
+      "postId": 11,
+      "postUserId": 5,
+      "likedUser": 1,
+      "id": 22
+    },
+    {
+      "postId": 5,
+      "postUserId": 1,
+      "likedUser": 8,
+      "id": 23
+    },
+    {
+      "postId": 4,
+      "postUserId": 1,
+      "likedUser": 8,
+      "id": 24
+    },
+    {
+      "postId": 2,
+      "postUserId": 1,
+      "likedUser": 8,
+      "id": 25
+    },
+    {
+      "postId": 1,
+      "postUserId": 1,
+      "likedUser": 8,
+      "id": 26
+    },
+    {
+      "postId": 11,
+      "postUserId": 5,
+      "likedUser": 8,
+      "id": 27
+    },
+    {
+      "postId": 12,
+      "postUserId": 1,
+      "likedUser": 8,
+      "id": 28
+    }
+  ],
+  "story": [],
+  "command": [],
+  "messages": [
+    {
+      "fromUserId": 1,
+      "toUserId": 2,
+      "text": "dddd",
+      "id": 1
+    }
+  ]
+}

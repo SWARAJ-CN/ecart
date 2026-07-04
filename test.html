@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India & International News Portal</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;transition: background 0.3s}
+header{background:#0d6efd;color:#fff;padding:16px;text-align:center}
+.controls{display:flex;flex-wrap:wrap;gap:10px;padding:15px;justify-content:center}
+select,input,button{padding:10px;border-radius:8px;border:1px solid #ccc;font-size:14px}
+#news{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;padding:16px}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);display:flex;flex-direction:column}
+.card img{width:100%;height:200px;object-fit:cover;background:#e9ecef}
+.content{padding:12px;flex-grow:1;display:flex;flex-direction:column;justify-content:space-between}
+.content h3{margin:0 0 8px 0;font-size:16px}
+.content p{font-size:14px;color:#555;margin:0 0 12px 0}
+.content a{color:#0d6efd;text-decoration:none;font-weight:bold;font-size:14px}
+.dark{background:#121212;color:#fff}
+.dark .card{background:#1e1e1e;color:#fff}
+.dark .content p{color:#ccc}
+.dark select, .dark input, .dark button {background:#2a2a2a;color:#fff;border-color:#444}
+.status-msg{grid-column:1/-1;text-align:center;padding:40px;font-size:16px;color:#666}
+</style>
+</head>
+<body>
+<header>
+<h1>🇮🇳 India & 🌍 International News Portal</h1>
+<p>36 States / UT Live News Feed</p>
+</header>
+
+<div class="controls">
+<select id="region">
+<option value="international">🌍 International</option>
+<option value="andhra_pradesh">Andhra Pradesh</option>
+<option value="arunachal_pradesh">Arunachal Pradesh</option>
+<option value="assam">Assam</option>
+<option value="bihar">Bihar</option>
+<option value="chhattisgarh">Chhattisgarh</option>
+<option value="goa">Goa</option>
+<option value="gujarat">Gujarat</option>
+<option value="haryana">Haryana</option>
+<option value="himachal_pradesh">Himachal Pradesh</option>
+<option value="jharkhand">Jharkhand</option>
+<option value="karnataka">Karnataka</option>
+<option value="kerala">Kerala</option>
+<option value="madhya_pradesh">Madhya Pradesh</option>
+<option value="maharashtra">Maharashtra</option>
+<option value="manipur">Manipur</option>
+<option value="meghalaya">Meghalaya</option>
+<option value="mizoram">Mizoram</option>
+<option value="nagaland">Nagaland</option>
+<option value="odisha">Odisha</option>
+<option value="punjab">Punjab</option>
+<option value="rajasthan">Rajasthan</option>
+<option value="sikkim">Sikkim</option>
+<option value="tamil_nadu">Tamil Nadu</option>
+<option value="telangana">Telangana</option>
+<option value="tripura">Tripura</option>
+<option value="uttar_pradesh">Uttar Pradesh</option>
+<option value="uttarakhand">Uttarakhand</option>
+<option value="west_bengal">West Bengal</option>
+<option value="andaman_nicobar">Andaman and Nicobar Islands</option>
+<option value="chandigarh">Chandigarh</option>
+<option value="delhi">Delhi</option>
+<option value="jammu_kashmir">Jammu and Kashmir</option>
+<option value="ladakh">Ladakh</option>
+<option value="lakshadweep">Lakshadweep</option>
+<option value="puducherry">Puducherry</option>
+</select>
+
+<input id="search" placeholder="Search news...">
+<button onclick="toggleDark()">🌙 Toggle Theme</button>
+</div>
+
+<div id="news">
+<p class="status-msg">Select a region to load live news.</p>
+</div>
+
+<script>
+// Feed Mapping Directory
+const FEEDS = {
+  international: ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+  kerala: ["https://www.onmanorama.com/rss/kerala.html"],
+  delhi: ["https://www.hindustantimes.com/feeds/rss/cities/delhi/rssfeed.xml"],
+  tamil_nadu: ["https://www.thehindu.com/news/national/tamil-nadu/feeder/default.rss"]
+  // You can easily paste standard RSS urls here matching the lower_case dropdown values
+};
+
+let currentArticles = []; // Stores currently active fetched items for client-side search filtering
+
+function toggleDark(){
+  document.body.classList.toggle('dark');
+}
+
+// Main Async function to call APIs and process feeds
+async function fetchNews() {
+  const region = document.getElementById('region').value;
+  const newsContainer = document.getElementById('news');
+  
+  newsContainer.innerHTML = '<p class="status-msg">🔄 Loading live feeds safely...</p>';
+  currentArticles = [];
+
+  const urls = FEEDS[region];
+  if (!urls || urls.length === 0) {
+    newsContainer.innerHTML = `<p class="status-msg">ℹ️ No RSS feed URL configured for this region yet. Add a valid URL to the FEEDS object in the script.</p>`;
+    return;
+  }
+
+  try {
+    // Mapping across multiple feeds if a region contains more than one URL array string
+    const fetchPromises = urls.map(async (url) => {
+      // Using public rss2json wrapper to securely circumvent CORS constraints directly on front-end
+      const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
+      const response = await fetch(proxyUrl);
+      if (!response.ok) throw new Error('Network query failure');
+      const data = await response.json();
+      return data.items || [];
+    });
+
+    const results = await Promise.all(fetchPromises);
+    currentArticles = results.flat(); // Flatten potential multi-array lists down into a clean master array
+
+    renderArticles(currentArticles);
+  } catch (error) {
+    console.error('Fetch error:', error);
+    newsContainer.innerHTML = '<p class="status-msg">❌ Failed to fetch news. Please verify network/RSS link validity or try again later.</p>';
+  }
+}
+
+// Function responsible for populating template UI dynamic HTML grid structure
+function renderArticles(articles) {
+  const newsContainer = document.getElementById('news');
+  newsContainer.innerHTML = '';
+
+  if (articles.length === 0) {
+    newsContainer.innerHTML = '<p class="status-msg">No news matches your selection criteria.</p>';
+    return;
+  }
+
+  articles.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    // Fallback placeholder image if RSS post doesn't offer one
+    const thumbnail = item.enclosure?.link || item.thumbnail || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=500&auto=format&fit=crop';
+    
+    // Strip HTML tags sometimes embedded inside RSS description strings safely
+    const cleanSnippet = item.description ? item.description.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 120) + "..." : "Click read full coverage details.";
+
+    card.innerHTML = `
+      <img src="${thumbnail}" alt="News Image" onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=500&auto=format&fit=crop'">
+      <div class="content">
+        <div>
+          <h3>${item.title}</h3>
+          <p>${cleanSnippet}</p>
+        </div>
+        <a href="${item.link}" target="_blank">Read Full Article →</a>
+      </div>
+    `;
+    newsContainer.appendChild(card);
+  });
+}
+
+// Event Listeners setup
+document.getElementById('region').addEventListener('change', fetchNews);
+
+document.getElementById('search').addEventListener('input', e => {
+  const query = e.target.value.toLowerCase();
+  const filtered = currentArticles.filter(article => 
+    article.title.toLowerCase().includes(query) || 
+    (article.description && article.description.toLowerCase().includes(query))
+  );
+  renderArticles(filtered);
+});
+
+// Initialize on first load up automatically
+fetchNews();
+</script>
+</body>
+</html>
